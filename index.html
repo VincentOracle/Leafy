@@ -411,10 +411,12 @@
                         name="Name"
                       />
                       <input
-                        type="text"
+                        type="tel"
                         class="mail_text"
-                        placeholder="Phone Number"
+                        id="phone_num"
+                        placeholder="Phone Num i.e +254 723456789"
                         name="Phone Number"
+                        required
                       />
                       <input
                         type="text"
@@ -429,8 +431,12 @@
                         id="comment"
                         name="Massage"
                       ></textarea>
-                      <button class="send_bt" type="submit">Send</button>
-                      <!-- <div class="send_bt"><a href="#">SEND</a></div> -->
+
+                      <div class="send_bt">
+                        <button class="send_bt" id="submit" type="submit">
+                          Send
+                        </button>
+                      </div>
                     </form>
                   </div>
                 </div>
@@ -681,6 +687,47 @@
       document.getElementById("year").innerHTML = time;
     </script>
     <!-- copyright section end -->
+
+    <!-- phone number validation start-->
+    <!--  Get the phone input element -->
+    <script>
+      const phoneInput = document.getElementById("phone_num");
+      function validatePhoneNumber() {
+        const phoneNumber = phoneInput.value;
+        // const phoneNumberPattern = /^[0–9]{10}$/;
+        const phoneNumberPattern = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+
+        if (!phoneNumberPattern.test(phoneNumber)) {
+          alert("Please  a valid 10-digit phone number.");
+          phoneInput.focus();
+          return false;
+        }
+        return true;
+      }
+      // Attach the validation function to the form’s submit event
+      const form = document.querySelector("form");
+      form.addEventListener("submit", function (event) {
+        if (!validatePhoneNumber()) {
+          // Prevent form submission if validation fails
+          event.preventDefault();
+        }
+      });
+
+      phoneInput.addEventListener("input", function () {
+        const phoneNumber = phoneInput.value;
+        const phoneNumberPattern = /^[0–9]{10}$/;
+
+        if (!phoneNumberPattern.test(phoneNumber)) {
+          phoneInput.setCustomValidity(
+            "Please enter a valid 10-digit phone number."
+          );
+        } else {
+          phoneInput.setCustomValidity("");
+        }
+      });
+    </script>
+
+    <!-- phone number validation end-->
     <!-- Javascript files-->
     <script src="js/jquery.min.js"></script>
     <script src="js/popper.min.js"></script>
