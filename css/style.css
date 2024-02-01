@@ -581,6 +581,31 @@ figure:hover+span {
 }
 
 
+.Order_bt_1 {
+    width: 170px;
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+}
+
+.Order_bt_1 a {
+    width: 100%;
+    float: left;
+    font-size: 18px;
+    background-color: #00a651;
+    color: #ffffff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 8px;
+}
+
+.Order_bt_1 a:hover {
+    color: #fafafa;
+    background-color: #252525;
+}
+
+
+
 /* vagetables section end */
 
 
@@ -894,6 +919,7 @@ figure:hover+span {
     font-family: 'Sen', sans-serif;
 }
 
+
 .footer_menu {
     width: 100%;
     float: left;
@@ -912,6 +938,11 @@ figure:hover+span {
 .footer_menu li a:hover {
     color: #ffffff;
 }
+
+.footer_menu li a span i :hover {
+    color:#00a651;
+}
+
 
 span.angle_icon {
     font-size: 14px;
